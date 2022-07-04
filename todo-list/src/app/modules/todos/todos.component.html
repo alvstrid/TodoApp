@@ -1,0 +1,51 @@
+<div class="new-todo-card">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Add a new task</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+        <div class="new-todo">
+          <mat-form-field appearance="standard">
+            <mat-label>Title:</mat-label>
+            <input matInput type='text' [formControlName]="'title'">
+            <mat-error *ngIf="todoForm.invalid">Title is required</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="standard">
+            <mat-label>About:</mat-label>
+            <textarea rows="8" matInput type='text' [formControlName]="'about'"></textarea>
+            <mat-error *ngIf="todoForm.invalid">About is required</mat-error>
+          </mat-form-field>
+          <button mat-button class="button" type="submit">Add todo</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div class="todos">
+  <mat-card *ngFor="let todo of todos">
+    <mat-card-content>
+      <div class="card-content" *ngIf='!(todo.id === index)'>
+        <h1 class="todo-title">{{todo.title}}</h1>
+        <p>{{todo.about}}</p>
+      </div>
+
+      <div class="edit-todos" *ngIf='todo.id === index'>
+        <mat-form-field appearance="standard">
+          <mat-label>Title:</mat-label>
+          <input matInput type="text" value="{{todo.title}}" [(ngModel)]="todo.title">
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-label>About:</mat-label>
+          <textarea rows="8" matInput type="text" value="{{todo.about}}" [(ngModel)]="todo.about"></textarea>
+        </mat-form-field>
+        <div class="todo-buttons">
+          <button mat-button class="button" (click)="updateTodo(todo)">Save</button>
+          <button *ngIf='todo.id === index' mat-button class="button" type="submit" (click)="deleteTodo(todo.id!)" >Delete</button>
+        </div>
+      </div>
+        <button *ngIf='todo.id !== index' class="button edit-button" mat-button (click)='index = todo.id'>Edit</button>
+    </mat-card-content>
+  </mat-card>
+</div>

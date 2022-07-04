@@ -1,0 +1,33 @@
+:host {
+  padding: 1em;
+  background-color: #7859c2;
+  border-bottom: 0.5px solid lightgray;
+  color: white;
+}
+
+.menu-right-buttons {
+  position: absolute;
+  right: 5%;
+  display: inline;
+}
+
+button {
+  border-radius: 15px;
+  margin-right: 10px;
+}
+
+.register {
+  cursor: pointer;
+  background-color: #5b9dd2;
+  &:hover {
+    border-color: #91cfff;
+  }
+  span {
+    color: white;
+  }
+}
+
+.login {
+  cursor: pointer;
+  border: 1px solid lightgray;
+}

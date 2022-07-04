@@ -1,0 +1,79 @@
+:host {
+  display: flex;
+  margin: 2em;
+}
+
+.button {
+  border: 1px solid gray;
+  border-radius: 15px;
+}
+
+.todos {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  flex-flow: row wrap;
+  mat-card {
+    max-width: 10em;
+    padding: 0;
+    min-width: 25em;
+    min-height: 20em;
+    mat-card-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100%;
+      justify-content: center;
+      .card-content {
+        width: 100%;
+        word-wrap: break-word;
+      }
+      p {
+        padding: 1em;
+      }
+    }
+  }
+}
+
+.new-todo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em;
+}
+
+.new-todo-card {
+  display: flex;
+  margin: 2em;
+  mat-card-title {
+    color: #6b6b6b;
+  }
+}
+
+.todo-title {
+  background-color: #7859c2;
+  color: white;
+  padding: 1em;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.edit-todos {
+  display: flex;
+  flex-direction: column;
+  button {
+    margin: 1em;
+  }
+}
+
+.todo-buttons {
+  display: flex;
+}
+
+.edit-button {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 2em !important;
+}

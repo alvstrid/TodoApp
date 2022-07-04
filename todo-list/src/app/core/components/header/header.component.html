@@ -1,0 +1,6 @@
+<button *ngIf="!isLoggedIn" mat-button [disableRipple]=true [routerLink]="'authentication/login'"><span>Log In</span></button>
+<button *ngIf="!isLoggedIn" mat-button [disableRipple]=true [routerLink]="'authentication/register'"><span>Sign Up</span></button>
+<button mat-button [disableRipple]=true [routerLink]="'todos'"><span>Todos</span></button>
+<span *ngIf="isLoggedIn" >Welcome back!</span>
+<button *ngIf="isLoggedIn" mat-button [disableRipple]=true (click)="logout()"><span>Logout</span></button>
+
